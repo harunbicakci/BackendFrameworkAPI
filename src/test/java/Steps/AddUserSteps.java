@@ -47,10 +47,14 @@ public class AddUserSteps {
         // For other transformations you can register a DataTableType.
 
 
-        Map<String, String> newUserMap = dataTable.asMap(String.class, String.class);
+        Map<String, String> newUserMap = dataTable.asMap();
         String uName = newUserMap.get("username");
 
         System.out.println("newUserMap is --> " + newUserMap);
+
+        request.body(APIUtils.mapToJson(newUserMap));
+
+// ---------------------------SEND THE PAYLOAD HERE-------------------------------
 
 
 //        Map<String, Object> newUserMap = new HashMap<>();
@@ -59,7 +63,7 @@ public class AddUserSteps {
 //
 //        System.out.println("newUserMap is --> " + newUserMap);
 //
-//        request.body(APIUtils.mapToJson(newUserMap));
+
 
 
     }
@@ -71,8 +75,11 @@ public class AddUserSteps {
 
     @Then("validate the status code is {int}")
     public void validate_the_status_code_is(Integer status) {
+
         response.then().assertThat().statusCode(status);
-        System.out.println("The actual status code is: " + status);
+
+        int actualStatusCode = response.getStatusCode();
+        System.out.println("Actual Status Code is --> " + actualStatusCode);
     }
 
     @Then("validate that body contains {string}")

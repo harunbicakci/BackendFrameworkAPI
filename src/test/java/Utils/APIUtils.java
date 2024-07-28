@@ -25,7 +25,7 @@ public class APIUtils {
 //    Convert Map
 //    @param map Map to convert
 //    @return JSON String ewpresentation of the map
-    public static String mapToJson(Map<String, Object> map) {
+    public static String mapToJson(Map<String, String> map) {
 
         return gson.toJson(map);
     }
