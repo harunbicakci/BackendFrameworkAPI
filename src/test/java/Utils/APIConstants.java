@@ -17,5 +17,7 @@ public class APIConstants {
     public static final String GET_ONE_BOOK_ENDPOINT = "/Bookstore/v1/Book";
 
     public static final String DELETE_ACCOUNT_ENDPOINT = "/Account/v1/User/{UUID}";
+
+    public static final String CONTENT_TYPE = "application/json";
 }
 
