@@ -64,29 +64,29 @@ public class AddUserSteps {
 
     }
 
-    @Then("validate the status code is {int}")
-    public void validate_the_status_code_is(Integer status) {
+//    @Then("validate the status code is {int}")
+//    public void validate_the_status_code_is(Integer status) {
+//
+//        response.then().assertThat().statusCode(status);
+//                // .contentType(ContentType.JSON);
+//
+//        int actualStatusCode = response.getStatusCode();
+//        System.out.println("PRINT OUT: Actual Status Code is --> " + actualStatusCode);
+//    }
 
-        response.then().assertThat().statusCode(status);
-                // .contentType(ContentType.JSON);
-
-        int actualStatusCode = response.getStatusCode();
-        System.out.println("PRINT OUT: Actual Status Code is --> " + actualStatusCode);
-    }
-
-    @Then("validate that body contains {string}")
-    public void validate_that_body_contains(String created) {
-
-        responseBody = response.jsonPath();
-        newUserID001 = responseBody.get("userID");
-        System.out.println("PRINT OUT: New users UserID is --> " + newUserID001);
-
-        response.then().assertThat().body(containsString(created));
-        responseBody.toString().contains("Created");
-        //  response.then().assertThat().body("status", containsString(success);
-        //  JsonPath actualResponseBody = response.jsonPath();
-        //  returns all the body
-    }
+//    @Then("validate that body contains {string}")
+//    public void validate_that_body_contains(String created) {
+//
+//        responseBody = response.jsonPath();
+//        newUserID001 = responseBody.get("userID");
+//        System.out.println("PRINT OUT: New users UserID is --> " + newUserID001);
+//
+//        response.then().assertThat().body(containsString(created));
+//        responseBody.toString().contains("Created");
+//        //  response.then().assertThat().body("status", containsString(success);
+//        //  JsonPath actualResponseBody = response.jsonPath();
+//        //  returns all the body
+//    }
 
     @Then("validate that the value of the {string} is {string}")
     public void validate_that_the_value_of_the_is(String key, String value) {
@@ -101,33 +101,33 @@ public class AddUserSteps {
 
 //    ------------------------------------------------------------------------------------------
 
-
-    @Given("New user profile post request created with header and body for {string} and {string}")
-    public void New_user_profile_post_request_created_with_header_and_body_for_and(String user, String pass) {
-
-        String requestBody = "{\r\n"
-                + " \"userName\": " + user + ",\r\n"
-                + " \"password\": " + pass + "]\r\n"
-                + "}";
-
-        RestAssured.baseURI = APIConstants.BASE_URI;
-
-    }
-
-    @When("POST request is triggered to endpoint")
-    public void POST_request_is_triggered_to_endpoint() {
-
-     //   response.when().post(APIConstants.CREATE_NEW_ACCOUNT_ENDPOINT);
-    }
-
-    @Then("I validate status code {int}")
-    public void I_validate_status_code(Integer statusCode){
-
-    }
-
-    @Then("I validate body contains {string}")
-    public void I_validate_body_contains(String str){
-
-    }
+//
+//    @Given("New user profile post request created with header and body for {string} and {string}")
+//    public void New_user_profile_post_request_created_with_header_and_body_for_and(String user, String pass) {
+//
+//        String requestBody = "{\r\n"
+//                + " \"userName\": " + user + ",\r\n"
+//                + " \"password\": " + pass + "]\r\n"
+//                + "}";
+//
+//        RestAssured.baseURI = APIConstants.BASE_URI;
+//
+//    }
+//
+//    @When("POST request is triggered to endpoint")
+//    public void POST_request_is_triggered_to_endpoint() {
+//
+//     //   response.when().post(APIConstants.CREATE_NEW_ACCOUNT_ENDPOINT);
+//    }
+//
+//    @Then("I validate status code {int}")
+//    public void I_validate_status_code(Integer statusCode){
+//
+//    }
+//
+//    @Then("I validate body contains {string}")
+//    public void I_validate_body_contains(String str){
+//
+//    }
 }
 

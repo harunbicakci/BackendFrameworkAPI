@@ -16,6 +16,6 @@
 Feature: Add new user
     Scenario:
       Given I hit the url endpoint
-      When New user profile post request created with header and body for "MJordan" and "Bulls@123"
+      When New user profile post request created with header and body for "MJordan5" and "Bulls@123"
       Then I validate status code 201
       And I validate body contains "Created"

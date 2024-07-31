@@ -18,7 +18,7 @@ public class TestExample {
     public void createNewUser() {
 
         String requestBody = "{\r\n"
-                + " \"userName\": \"Dave963\",\r\n"
+                + " \"userName\": \"Dave964\",\r\n"
                 + " \"password\": \"David@123\"\r\n"
                 + "}";
 
