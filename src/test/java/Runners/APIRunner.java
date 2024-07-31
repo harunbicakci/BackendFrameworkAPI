@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "Steps",
         dryRun = false,
-        tags = "@AddUser",
+        tags = "@AddNewUser",
         monochrome = true,
         plugin = {
                 // "pretty",

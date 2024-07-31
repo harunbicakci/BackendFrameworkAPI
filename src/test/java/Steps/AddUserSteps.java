@@ -99,5 +99,35 @@ public class AddUserSteps {
 
     }
 
+//    ------------------------------------------------------------------------------------------
 
+
+    @Given("New user profile post request created with header and body for {string} and {string}")
+    public void New_user_profile_post_request_created_with_header_and_body_for_and(String user, String pass) {
+
+        String requestBody = "{\r\n"
+                + " \"userName\": " + user + ",\r\n"
+                + " \"password\": " + pass + "]\r\n"
+                + "}";
+
+        RestAssured.baseURI = APIConstants.BASE_URI;
+
+    }
+
+    @When("POST request is triggered to endpoint")
+    public void POST_request_is_triggered_to_endpoint() {
+
+     //   response.when().post(APIConstants.CREATE_NEW_ACCOUNT_ENDPOINT);
+    }
+
+    @Then("I validate status code {int}")
+    public void I_validate_status_code(Integer statusCode){
+
+    }
+
+    @Then("I validate body contains {string}")
+    public void I_validate_body_contains(String str){
+
+    }
 }
+
