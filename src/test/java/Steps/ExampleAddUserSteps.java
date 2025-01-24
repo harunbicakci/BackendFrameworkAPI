@@ -15,6 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.junit.Assert;
 
+import javax.sound.midi.Soundbank;
+
 import static org.junit.Assert.assertEquals;
 
 public class ExampleAddUserSteps {
@@ -44,8 +46,9 @@ public class ExampleAddUserSteps {
         httpRequest.body(requestParams.toString());
         response = httpRequest.contentType(ContentType.JSON).post(APIConstants.CREATE_NEW_ACCOUNT_ENDPOINT);
         body = response.getBody();
-        System.out.println("Response getStatusLine() --> " + response.statusLine());
-        System.out.println("Response asString --> " + response.asString());
+        System.out.println("1- Response directly is --> " + response);
+        System.out.println("2- Response getStatusLine() --> " + response.statusLine());
+        System.out.println("3- Response asString --> " + response.asString());
     }
 
     @Then("I validate status code {int}")
@@ -83,7 +86,11 @@ public class ExampleAddUserSteps {
         System.out.println("PRINT OUT: JSONPath.toString() method is --> " + jsnPathStr);
         System.out.println("------------------------------------------------------------------");
 
-    //    assertEquals(str, jsnPathStr);
+//        get username from JsonPath
+        String usernameFromResponse = jsnPath.get("username");
+        System.out.println("PRINT OUT: Username from Response by using JsonPath.get(-username-) --> " + usernameFromResponse);
+
+        //    assertEquals(str, jsnPathStr);
     }
 
     @Then("I store the new user in database")
