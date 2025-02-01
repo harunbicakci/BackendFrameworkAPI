@@ -1,7 +1,7 @@
 package Steps;
 
-import Utils.APIConstants;
 import io.cucumber.datatable.internal.difflib.StringUtills;
+import Utils.APIConstants;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,6 +16,9 @@ import org.json.JSONObject;
 import org.junit.Assert;
 
 import javax.sound.midi.Soundbank;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -100,4 +103,34 @@ public class ExampleAddUserSteps {
 
 
     }
+
+//-----------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+
+//  1- Create JSON request data, create Map
+    Map<String, Object> requestData = new HashMap<>();
+    requestData.put("name", "Kobe Bryant");
+    requestData.put("email", "kobe0111@gmail.com");
+    requestData.put("age", 30);
+
+//  2- Post Request
+    public static Response sendPostRequest(String endpoint, Map<String, Object> requestData) {
+        String requestBody = createJsonRequestBody(requestData);
+
+        return RestAssured.given()
+                .contentType("application/json")
+                .body(requestBody)
+                .post(endpoint);
+    }
+
+//  3- Method to create JSON request body from Map
+    public static String createJsonRequestBody(Map<String, Object> data){
+        JSONObject jsonObject = new JSONObject();
+        for(Map.Entry<String, Object> entry : data.entrySet()){
+            jsonObject.put(entry.getKey(), entry.getValue());
+        }
+
+        return jsonObject.toString();
+    }
+
 }
